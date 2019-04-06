@@ -24,18 +24,21 @@ public class MainActivity extends AppCompatActivity {
         database = FirebaseDatabase.getInstance();
         Meal meal = new Meal("20190406", 629, MealEnum.FRIDAY_LUNCH);
         addMeal(meal);
-        //getMeal("201904061");
+        getMeal("201904060");
 }
 
-
+    public static String booleanToString(boolean value) {
+        // Convert true to 1 and false to 0.
+        return value ? "1" : "0";
+    }
     //add meal to firebase.
     protected void addMeal(Meal meal) {
         //Toast.makeText(getApplicationContext(),meal.toString(),Toast.LENGTH_SHORT).show();
         myRef = database.getReference(meal.getDate()
-                + Boolean.toString(meal.getMealEnum().isDinner()));
+                + booleanToString(meal.getMealEnum().isDinner()));
         myRef.setValue(meal);
     }
-    /*
+
     protected void getMeal(String date) {
         myRef = database.getReference(date);
         ValueEventListener postListener = new ValueEventListener() {
@@ -57,5 +60,5 @@ public class MainActivity extends AppCompatActivity {
         };
         myRef.addValueEventListener(postListener);
     }
-    */
+
 }

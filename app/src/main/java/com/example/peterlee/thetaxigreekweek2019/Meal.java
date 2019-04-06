@@ -10,7 +10,11 @@ public class Meal {
         this.numPeopleEating = numPeopleEating;
         this.mealEnum = mealEnum;
     }
-
+    Meal(){
+        date = "";
+        numPeopleEating = 0;
+        mealEnum = MealEnum.MONDAY_LUNCH;
+    }
     public String getDate() {
         return date;
     }
