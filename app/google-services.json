@@ -8,6 +8,39 @@
   "client": [
     {
       "client_info": {
+        "mobilesdk_app_id": "1:321559552827:android:9a1e71188ce1d450",
+        "android_client_info": {
+          "package_name": "com.example.peterlee.thetaxigreekweek2019"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "321559552827-ch8m2222mokb09s7i8qi1ea8mfoidp8p.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.peterlee.thetaxigreekweek2019",
+            "certificate_hash": "fe4333af589fe00e7683756ef682d0aedc374682"
+          }
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCWbxQ93gCzl6zOHYwEY-hz3NCYBrgUSns"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "321559552827-bkugpuusvuq5pac0vgri238hnoklblgd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
         "mobilesdk_app_id": "1:321559552827:android:22dd8729cbb58f8e",
         "android_client_info": {
           "package_name": "org.gttx.hacks2019"
