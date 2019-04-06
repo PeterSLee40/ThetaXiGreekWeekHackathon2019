@@ -6,7 +6,8 @@ import android.os.Bundle;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-//private FirebaseDatabase database;
+import static com.example.peterlee.thetaxigreekweek2019.MealEnum.MONDAY_LUNCH;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -14,16 +15,15 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        //FirebaseDatabase database = FirebaseDatabase.getInstance();
+}
+
+
+    //add meal to firebase.
+    protected void addMeal(String date, Meal meal) {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference("message");
+        DatabaseReference myRef = database.getReference(date);
+        myRef.setValue(meal);
 
-        myRef.setValue("Hello, my dudes!");
-    }
-
-    //
-
-
-    protected void addMeal(Meal meal) {
-        //add meal to firebase.
     }
 }
