@@ -1,15 +1,17 @@
 package com.example.peterlee.thetaxigreekweek2019;
 
 public class Meal {
-    private int date;
+    private String date;
     private int numPeopleEating;
     private MealEnum mealEnum;
-    Meal(int date, int numPeopleEating, MealEnum mealEnum) {
+
+    Meal(String date, int numPeopleEating, MealEnum mealEnum) {
         this.date = date;
         this.numPeopleEating = numPeopleEating;
         this.mealEnum = mealEnum;
     }
-    public int getDate() {
+
+    public String getDate() {
         return date;
     }
     public int getNumPeopleEating() {
@@ -17,5 +19,11 @@ public class Meal {
     }
     public MealEnum getMealEnum() {
         return mealEnum;
+    }
+
+    @Override
+    public String toString() {
+        return ("date: " + date +  "numPplEating" +
+                Integer.toString(numPeopleEating) + " " + mealEnum.toString());
     }
 }
