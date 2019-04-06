@@ -1,0 +1,35 @@
+{
+  "project_info": {
+    "project_number": "321559552827",
+    "firebase_url": "https://greekweekhackathon19.firebaseio.com",
+    "project_id": "greekweekhackathon19",
+    "storage_bucket": "greekweekhackathon19.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:321559552827:android:22dd8729cbb58f8e",
+        "android_client_info": {
+          "package_name": "org.gttx.hacks2019"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCWbxQ93gCzl6zOHYwEY-hz3NCYBrgUSns"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "321559552827-bkugpuusvuq5pac0vgri238hnoklblgd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
