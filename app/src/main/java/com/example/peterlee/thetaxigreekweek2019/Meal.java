@@ -6,10 +6,10 @@ public enum Meal {
     MONDAY_DINNER("Monday Dinner", false, 0),
     TUESDAY_LUNCH("Tuesday Lunch", true, 1),
     TUESDAY_DINNER("Tuesday Dinner", false, 1),
-    WEDNESDAY_LUNCH("Monday Lunch", true, 2),
-    WEDNESDAY_DINNER("Monday Dinner", false, 2),
-    THURSDAY_LUNCH("Tuesday Lunch", true, 3),
-    THURSDAY_DINNER("Tuesday Dinner", false, 3),
+    WEDNESDAY_LUNCH("Wednesday Lunch", true, 2),
+    WEDNESDAY_DINNER("Wednesday Dinner", false, 2),
+    THURSDAY_LUNCH("Thursday Lunch", true, 3),
+    THURSDAY_DINNER("Thursday Dinner", false, 3),
     FRIDAY_LUNCH("Friday Lunch", true, 4);
 
     private final String mealName;
