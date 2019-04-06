@@ -22,8 +22,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         database = FirebaseDatabase.getInstance();
-        //Meal meal = new Meal("201904061", 629, MealEnum.FRIDAY_LUNCH);
-        //addMeal(meal);
+        Meal meal = new Meal("20190406", 629, MealEnum.FRIDAY_LUNCH);
+        addMeal(meal);
         //getMeal("201904061");
 }
 
@@ -31,7 +31,8 @@ public class MainActivity extends AppCompatActivity {
     //add meal to firebase.
     protected void addMeal(Meal meal) {
         //Toast.makeText(getApplicationContext(),meal.toString(),Toast.LENGTH_SHORT).show();
-        myRef = database.getReference(meal.getDate());
+        myRef = database.getReference(meal.getDate()
+                + Boolean.toString(meal.getMealEnum().isDinner()));
         myRef.setValue(meal);
     }
     /*
