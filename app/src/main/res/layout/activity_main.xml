@@ -10,7 +10,7 @@
         android:id="@+id/weekTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="This Week"
+        android:text="@string/current_week"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="16dp"
         android:textSize="34sp"
@@ -20,209 +20,261 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="horizontal"
-        android:layout_marginTop="64dp"
-        android:layout_marginBottom="64dp"
-        android:layout_below="@+id/weekTextView">
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:layout_below="@+id/weekTextView"
+        android:baselineAligned="false">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:layout_weight=".33">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical|center_horizontal"
-                android:layout_weight=".16"
-                android:text=""
-                android:textSize="28sp"
-                android:fontFamily="sans-serif-medium"
-                android:gravity="center"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="M"
-                android:layout_weight=".16"
-                android:textSize="28sp"
-                android:fontFamily="sans-serif-medium"
-                android:gravity="center"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="T"
-                android:layout_weight=".16"
-                android:textSize="28sp"
-                android:fontFamily="sans-serif-medium"
-                android:gravity="center"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="W"
-                android:layout_weight=".16"
-                android:textSize="28sp"
-                android:fontFamily="sans-serif-medium"
-                android:gravity="center"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="T"
-                android:layout_weight=".16"
-                android:textSize="28sp"
-                android:fontFamily="sans-serif-medium"
-                android:gravity="center"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="F"
-                android:layout_weight=".16"
-                android:textSize="28sp"
-                android:fontFamily="sans-serif-medium"
-                android:gravity="center"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:layout_weight=".33"
-            android:gravity="center">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="Lunch"
-                android:layout_weight=".16"
-                android:textSize="28sp"
-                android:fontFamily="sans-serif-medium"
-                android:gravity="center"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="-5"
-                android:layout_weight=".16"
-                android:textSize="28sp"
-                android:fontFamily="sans-serif-medium"
-                android:gravity="center"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="0"
-                android:layout_weight=".16"
-                android:textSize="28sp"
-                android:fontFamily="sans-serif-medium"
-                android:gravity="center"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="3"
-                android:layout_weight=".16"
-                android:textSize="28sp"
-                android:fontFamily="sans-serif-medium"
-                android:gravity="center"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="2"
-                android:layout_weight=".16"
-                android:textSize="28sp"
-                android:fontFamily="sans-serif-medium"
-                android:gravity="center"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="14"
-                android:layout_weight=".16"
-                android:textSize="28sp"
-                android:fontFamily="sans-serif-medium"
-                android:gravity="center"/>
-        </LinearLayout>
-
-        <LinearLayout
+        <RelativeLayout
+            android:id="@+id/dayOfWeekLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
             android:layout_weight=".33">
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="Dinner"
-                android:layout_weight=".16"
-                android:textSize="28sp"
-                android:fontFamily="sans-serif-medium"
-                android:gravity="center"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="14"
-                android:layout_weight=".16"
-                android:textSize="28sp"
-                android:fontFamily="sans-serif-medium"
-                android:gravity="center"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="14"
-                android:layout_weight=".16"
-                android:textSize="28sp"
-                android:fontFamily="sans-serif-medium"
-                android:gravity="center"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="14"
-                android:layout_weight=".16"
-                android:textSize="28sp"
-                android:fontFamily="sans-serif-medium"
-                android:gravity="center"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="14"
-                android:layout_weight=".16"
-                android:textSize="28sp"
-                android:fontFamily="sans-serif-medium"
-                android:gravity="center"/>
-
-            <TextView
+                android:id="@+id/DOWTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text=""
-                android:layout_weight=".16"
                 android:textSize="28sp"
                 android:fontFamily="sans-serif-medium"
-                android:gravity="center"/>
-        </LinearLayout>
+                android:layout_centerHorizontal="true"/>
+
+            <TextView
+                android:id="@+id/MTextView"
+                android:layout_width="54dp"
+                android:layout_height="54dp"
+                android:layout_gravity="center"
+                android:text="@string/m"
+                android:textSize="28sp"
+                android:fontFamily="sans-serif-medium"
+                android:gravity="center"
+                android:layout_below="@id/DOWTextView"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="16dp"/>
+
+            <TextView
+                android:id="@+id/TTextView"
+                android:layout_width="54dp"
+                android:layout_height="54dp"
+                android:layout_gravity="center"
+                android:text="@string/t"
+                android:textSize="28sp"
+                android:fontFamily="sans-serif-medium"
+                android:gravity="center"
+                android:layout_below="@id/MTextView"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="16dp"/>
+
+            <TextView
+                android:id="@+id/WTextView"
+                android:layout_width="54dp"
+                android:layout_height="54dp"
+                android:layout_gravity="center"
+                android:text="@string/w"
+                android:textSize="28sp"
+                android:fontFamily="sans-serif-medium"
+                android:gravity="center"
+                android:layout_below="@id/TTextView"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="16dp"/>
+
+            <TextView
+                android:id="@+id/TRTextView"
+                android:layout_width="54dp"
+                android:layout_height="54dp"
+                android:layout_gravity="center"
+                android:text="@string/t"
+                android:textSize="28sp"
+                android:fontFamily="sans-serif-medium"
+                android:gravity="center"
+                android:layout_below="@id/WTextView"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="16dp"/>
+
+            <TextView
+                android:id="@+id/FTextView"
+                android:layout_width="54dp"
+                android:layout_height="54dp"
+                android:text="@string/f"
+                android:textSize="28sp"
+                android:gravity="center"
+                android:fontFamily="sans-serif-medium"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="16dp"
+                android:layout_gravity="center"
+                android:layout_below="@id/TRTextView"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/lunchLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_weight=".33">
+            <TextView
+                android:id="@+id/lunchTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/lunch"
+                android:textSize="28sp"
+                android:fontFamily="sans-serif-medium"
+                android:layout_centerHorizontal="true"/>
+
+            <TextView
+                android:id="@+id/MLTextView"
+                android:layout_width="54dp"
+                android:layout_height="54dp"
+                android:layout_gravity="center"
+                android:text="@string/sample_value"
+                android:textSize="28sp"
+                android:fontFamily="sans-serif-medium"
+                android:textColor="#fff"
+                android:gravity="center"
+                android:layout_below="@id/lunchTextView"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/circle_american"/>
+
+            <TextView
+                android:id="@+id/TLTextView"
+                android:layout_width="54dp"
+                android:layout_height="54dp"
+                android:layout_gravity="center"
+                android:text="@string/sample_value"
+                android:textSize="28sp"
+                android:fontFamily="sans-serif-medium"
+                android:textColor="#fff"
+                android:gravity="center"
+                android:layout_below="@id/MLTextView"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/circle_american"/>
+
+            <TextView
+                android:id="@+id/WLTextView"
+                android:layout_width="54dp"
+                android:layout_height="54dp"
+                android:layout_gravity="center"
+                android:text="@string/sample_value"
+                android:textSize="28sp"
+                android:fontFamily="sans-serif-medium"
+                android:textColor="#fff"
+                android:gravity="center"
+                android:layout_below="@id/TLTextView"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/circle_american"/>
+
+            <TextView
+                android:id="@+id/TRLTextView"
+                android:layout_width="54dp"
+                android:layout_height="54dp"
+                android:layout_gravity="center"
+                android:text="@string/sample_value"
+                android:textSize="28sp"
+                android:fontFamily="sans-serif-medium"
+                android:textColor="#fff"
+                android:gravity="center"
+                android:layout_below="@id/WLTextView"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/circle_american"/>
+
+            <TextView
+                android:id="@+id/FLTextView"
+                android:layout_width="54dp"
+                android:layout_height="54dp"
+                android:text="@string/sample_value"
+                android:textSize="28sp"
+                android:textColor="#fff"
+                android:gravity="center"
+                android:fontFamily="sans-serif-medium"
+                android:layout_below="@id/TRLTextView"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/circle_middle_eastern"
+                android:layout_gravity="center"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/dinnerLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_weight=".33">
+            <TextView
+                android:id="@+id/dinnerTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/dinner"
+                android:textSize="28sp"
+                android:fontFamily="sans-serif-medium"
+                android:layout_centerHorizontal="true"/>
+
+            <TextView
+                android:id="@+id/MDTextView"
+                android:layout_width="54dp"
+                android:layout_height="54dp"
+                android:layout_gravity="center"
+                android:text="@string/sample_value"
+                android:textSize="28sp"
+                android:fontFamily="sans-serif-medium"
+                android:textColor="#fff"
+                android:gravity="center"
+                android:layout_below="@id/dinnerTextView"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/circle_latin"/>
+
+            <TextView
+                android:id="@+id/TDTextView"
+                android:layout_width="54dp"
+                android:layout_height="54dp"
+                android:layout_gravity="center"
+                android:text="@string/sample_value"
+                android:textSize="28sp"
+                android:fontFamily="sans-serif-medium"
+                android:textColor="#fff"
+                android:gravity="center"
+                android:layout_below="@id/MDTextView"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/circle_european"/>
+
+            <TextView
+                android:id="@+id/WDTextView"
+                android:layout_width="54dp"
+                android:layout_height="54dp"
+                android:layout_gravity="center"
+                android:text="@string/sample_value"
+                android:textSize="28sp"
+                android:fontFamily="sans-serif-medium"
+                android:textColor="#fff"
+                android:gravity="center"
+                android:layout_below="@id/TDTextView"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/circle_asian"/>
+
+            <TextView
+                android:id="@+id/TRDTextView"
+                android:layout_width="54dp"
+                android:layout_height="54dp"
+                android:layout_gravity="center"
+                android:text="@string/sample_value"
+                android:textSize="28sp"
+                android:fontFamily="sans-serif-medium"
+                android:textColor="#fff"
+                android:gravity="center"
+                android:layout_below="@id/WDTextView"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/circle_american"/>
+        </RelativeLayout>
     </LinearLayout>
 
 </RelativeLayout>
