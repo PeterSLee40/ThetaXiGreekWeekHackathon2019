@@ -69,9 +69,9 @@ public class MainActivity extends AppCompatActivity implements DatePickerDialog.
 
     public void setKeyString() {
         TextView keyTextView = findViewById(R.id.keyTextView);
-        keyTextView.setText(Html.fromHtml("<font color='#F44336'>American</font> | " +
-                "<font color='#673AB7'>Asian</font> " +
-                "<font color='#03A9F4'>Latin</font> ))"));
+        keyTextView.setText(Html.fromHtml("<font color='#D64933'>American</font> | " +
+                "<font color='#17BEBB'>Asian</font> | " +
+                "<font color='#12664F'>Latin</font>"));
     }
 
     public void pickDate(MenuItem item) {
