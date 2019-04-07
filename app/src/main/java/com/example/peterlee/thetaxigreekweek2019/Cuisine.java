@@ -20,6 +20,17 @@ public enum Cuisine {
         return cuisineName;
     }
 
+    public static Cuisine getEnum(String s){
+        if(AMERICAN.name().equals(s)){
+            return AMERICAN;
+        }else if(ASIAN.name().equals(s)){
+            return ASIAN;
+        }else if(LATIN.name().equals(s)){
+            return LATIN;
+        }
+        throw new IllegalArgumentException("No Enum specified for this string");
+    }
+
     public int getColor() {
         return Color.parseColor(cuisineColor);
     }
