@@ -35,15 +35,15 @@ public class Meal {
     public String toJson(){
         String meal = " \"meal\": ";
         if (mealEnum.isLunch()) {
-            meal += "\"{0,1}\"";
+            meal += "\"{1}\"";
         } else if (!mealEnum.isLunch()){
-            meal += "\"{1,0}\"";
+            meal += "\"{0}\"";
         }
         String time = " \"meal\": ";
         if (!mealEnum.isLunch() & mealEnum.isMWF()){
-            time += "\"{0,1}\"";
+            time += "\"{1}\"";
         } else if (!mealEnum.isLunch() & !mealEnum.isMWF()){
-            time += "\"{1,0}\"";
+            time += "\"{0}\"";
         }
         String cuisineJson = "\"Cuisine\" :";
         if (cuisine.equals("American")) {

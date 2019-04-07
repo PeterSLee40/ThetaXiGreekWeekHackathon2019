@@ -6,9 +6,7 @@ public enum Cuisine {
 
     AMERICAN("American", "#F44336"),
     ASIAN("Asian", "#673AB7"),
-    EUROPEAN("European", "#4CAF50"),
-    LATIN("Latin", "#FF9800"),
-    MIDDLE_EASTERN("Middle Eastern", "#03A9F4");
+    LATIN("Latin", "#FF9800");
 
     private final String cuisineName;
     private final String cuisineColor;
