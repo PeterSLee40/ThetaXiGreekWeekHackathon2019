@@ -169,12 +169,6 @@ public class MainActivity extends AppCompatActivity implements DatePickerDialog.
                         case LATIN:
                             tv.setBackground(ContextCompat.getDrawable(MainActivity.this, R.drawable.circle_latin));
                             break;
-                        case EUROPEAN:
-                            tv.setBackground(ContextCompat.getDrawable(MainActivity.this, R.drawable.circle_european));
-                            break;
-                        case MIDDLE_EASTERN:
-                            tv.setBackground(ContextCompat.getDrawable(MainActivity.this, R.drawable.circle_middle_eastern));
-                            break;
                     }
                 } else {
                     tv.setText("-");
