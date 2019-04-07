@@ -26,6 +26,9 @@ public class Meal {
     public int getNumPeopleEating() {
         return numPeopleEating;
     }
+    public void setNumPeopleEating(int num) {
+        numPeopleEating = num;
+    }
     public MealEnum getMealEnum() {
         return mealEnum;
     }
