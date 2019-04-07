@@ -17,4 +17,8 @@ public enum Cuisine {
     public String getName() {
         return cuisineName;
     }
+
+    public int getInt(){
+        
+    }
 }

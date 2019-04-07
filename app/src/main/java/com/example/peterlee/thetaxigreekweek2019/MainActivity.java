@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         database = FirebaseDatabase.getInstance();
-        Meal meal = new Meal("20190406", 629, MealEnum.FRIDAY_LUNCH);
+        Meal meal = new Meal("20190406", 629, MealEnum.FRIDAY_LUNCH, Cuisine.AMERICAN);
         addMeal(meal);
         getMeal("201904060");
 }
@@ -47,18 +47,19 @@ public class MainActivity extends AppCompatActivity {
                 // Get Post object and use the values to update the UI
                 Meal meal = dataSnapshot.getValue(Meal.class);
                 Toast.makeText(getApplicationContext(),meal.toString(),Toast.LENGTH_SHORT).show();
-
-                // ...
             }
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
-                // Getting Post failed, log a message
-                //Log.d("loadPost:onCancelled");
-                // ...
             }
         };
         myRef.addValueEventListener(postListener);
+    }
+    protected int[] inputDataGenerator(Meal meal) {
+        int[] input = new int[5];
+        input[0] = Integer.parseInt(meal.getDate());
+        input[1] = meal.getNumPeopleEating();
+        input[2] = meal.getCuisine().;
     }
 
 }
