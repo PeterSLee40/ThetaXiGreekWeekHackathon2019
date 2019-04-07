@@ -136,7 +136,7 @@
                 android:layout_below="@id/lunchTextView"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="16dp"
-                android:background="@drawable/circle_american"/>
+                android:background="@drawable/circle_blank"/>
 
             <TextView
                 android:id="@+id/TLTextView"
@@ -151,7 +151,7 @@
                 android:layout_below="@id/MLTextView"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="16dp"
-                android:background="@drawable/circle_american"/>
+                android:background="@drawable/circle_blank"/>
 
             <TextView
                 android:id="@+id/WLTextView"
@@ -166,7 +166,7 @@
                 android:layout_below="@id/TLTextView"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="16dp"
-                android:background="@drawable/circle_american"/>
+                android:background="@drawable/circle_blank"/>
 
             <TextView
                 android:id="@+id/TRLTextView"
@@ -181,7 +181,7 @@
                 android:layout_below="@id/WLTextView"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="16dp"
-                android:background="@drawable/circle_american"/>
+                android:background="@drawable/circle_blank"/>
 
             <TextView
                 android:id="@+id/FLTextView"
@@ -195,7 +195,7 @@
                 android:layout_below="@id/TRLTextView"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="16dp"
-                android:background="@drawable/circle_middle_eastern"
+                android:background="@drawable/circle_blank"
                 android:layout_gravity="center"/>
         </RelativeLayout>
 
@@ -228,7 +228,7 @@
                 android:layout_below="@id/dinnerTextView"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="16dp"
-                android:background="@drawable/circle_latin"/>
+                android:background="@drawable/circle_blank"/>
 
             <TextView
                 android:id="@+id/TDTextView"
@@ -243,7 +243,7 @@
                 android:layout_below="@id/MDTextView"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="16dp"
-                android:background="@drawable/circle_european"/>
+                android:background="@drawable/circle_blank"/>
 
             <TextView
                 android:id="@+id/WDTextView"
@@ -258,7 +258,7 @@
                 android:layout_below="@id/TDTextView"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="16dp"
-                android:background="@drawable/circle_asian"/>
+                android:background="@drawable/circle_blank"/>
 
             <TextView
                 android:id="@+id/TRDTextView"
@@ -273,8 +273,17 @@
                 android:layout_below="@id/WDTextView"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="16dp"
-                android:background="@drawable/circle_american"/>
+                android:background="@drawable/circle_blank"/>
         </RelativeLayout>
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/keyTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:gravity="center_horizontal"
+        android:textSize="18sp"/>
 
 </RelativeLayout>
