@@ -3,23 +3,23 @@ package com.example.peterlee.thetaxigreekweek2019;
 import android.app.DatePickerDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.Menu;
 import java.util.Calendar;
-import java.util.Date;
 
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.DatePicker;
-import android.widget.LinearLayout;
-import android.widget.TextView;
+import android.widget.Toast;
 
-//import com.google.firebase.database.DatabaseReference;
-//import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
-//private FirebaseDatabase database;
 
 public class MainActivity extends AppCompatActivity implements DatePickerDialog.OnDateSetListener {
 
+    FirebaseDatabase database;
+    DatabaseReference myRef;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,17 +41,42 @@ public class MainActivity extends AppCompatActivity implements DatePickerDialog.
         datePickerDialog.show();
     }
 
-
     @Override
     public void onDateSet(DatePicker datePicker, int i, int i1, int i2) {
 
     }
 
+    //add meal to firebase.
     protected void addMeal(Meal meal) {
-        //add meal to firebase.
+        //Toast.makeText(getApplicationContext(),meal.toString(),Toast.LENGTH_SHORT).show();
+        myRef = database.getReference(meal.getDate()
+                + Boolean.toString(meal.getMealEnum().isDinner()));
+        myRef.setValue(meal);
     }
 
+    protected void getMeal(String date) {
+        myRef = database.getReference(date);
+        ValueEventListener postListener = new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                // Get Post object and use the values to update the UI
+                Meal meal = dataSnapshot.getValue(Meal.class);
+                Toast.makeText(getApplicationContext(),meal.toString(),Toast.LENGTH_SHORT).show();
 
+                // ...
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                // Getting Post failed, log a message
+                //Log.d("loadPost:onCancelled");
+                // ...
+            }
+        };
+        final ValueEventListener valueEventListener = myRef.addValueEventListener(postListener);
+    }
+
+/*
     public void setupMeals() {
 
     }
@@ -60,5 +85,5 @@ public class MainActivity extends AppCompatActivity implements DatePickerDialog.
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main_menu, menu);
         return super.onCreateOptionsMenu(menu);
-    }
+    }*/
 }
