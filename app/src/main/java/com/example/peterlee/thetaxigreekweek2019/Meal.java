@@ -33,15 +33,17 @@ public class Meal {
     }
     //lunch, time
     public String toJson(){
-        String mealtime = " \"mealtime\": ";
-        if (mealEnum.isLunch() & mealEnum.isMWF()) {
-            mealtime += "\"{0,0,0,1}\"";
-        } else if (mealEnum.isLunch() & !mealEnum.isMWF()){
-            mealtime += "\"{0,0,1,0}\"";
-        } else if (!mealEnum.isLunch() & mealEnum.isMWF()){
-            mealtime += "\"{0,1,0,0}\"";
+        String meal = " \"meal\": ";
+        if (mealEnum.isLunch()) {
+            meal += "\"{0,1}\"";
+        } else if (!mealEnum.isLunch()){
+            meal += "\"{1,0}\"";
+        }
+        String time = " \"meal\": ";
+        if (!mealEnum.isLunch() & mealEnum.isMWF()){
+            time += "\"{0,1}\"";
         } else if (!mealEnum.isLunch() & !mealEnum.isMWF()){
-            mealtime += "\"{1,0,0,0}\"";
+            time += "\"{1,0}\"";
         }
         String cuisineJson = "\"Cuisine\" :";
         if (cuisine.equals("American")) {
@@ -57,6 +59,6 @@ public class Meal {
         }
         String numberOfPplEating = "\"numberOfPplEating\" :";
         numberOfPplEating += numPeopleEating;
-        return "{" + mealtime + cuisine + numberOfPplEating +"}";
+        return "{" + meal + time + cuisine + numberOfPplEating +"}";
     }
 }
