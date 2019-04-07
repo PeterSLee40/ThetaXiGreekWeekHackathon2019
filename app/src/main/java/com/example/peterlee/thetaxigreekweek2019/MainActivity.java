@@ -4,9 +4,13 @@ import android.app.DatePickerDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import java.util.Calendar;
+import java.util.Date;
 
+import android.util.Log;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.DatePicker;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
@@ -24,16 +28,21 @@ public class MainActivity extends AppCompatActivity implements DatePickerDialog.
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        //FirebaseDatabase database = FirebaseDatabase.getInstance();
-        //DatabaseReference myRef = database.getReference("message");
 
-        //myRef.setValue("Hello, my dudes!");
+        database = FirebaseDatabase.getInstance();
+
+        Calendar calendar = Calendar.getInstance();
+        int year = calendar.get(Calendar.YEAR);
+        int month = calendar.get(Calendar.MONTH) + 1;
+        int day = calendar.get(Calendar.DAY_OF_MONTH);
+        Log.v("Date: ","" + year + "" + month + "" + day);
+        updateMealInfoForWeek(year, month, day);
     }
 
     public void pickDate(MenuItem item) {
         Calendar calander = Calendar.getInstance();
         int curYear = calander.get(Calendar.YEAR);
-        int curMonth = calander.get(Calendar.MONTH);
+        int curMonth = calander.get(Calendar.MONTH) + 1;
         int curDay = calander.get(Calendar.DAY_OF_MONTH);
 
         DatePickerDialog datePickerDialog = new DatePickerDialog(this,
@@ -43,11 +52,7 @@ public class MainActivity extends AppCompatActivity implements DatePickerDialog.
 
     @Override
     public void onDateSet(DatePicker datePicker, int i, int i1, int i2) {
-        database = FirebaseDatabase.getInstance();
-        Meal meal = new Meal("20190406", 629, MealEnum.FRIDAY_LUNCH, Cuisine.AMERICAN);
-        addMeal(meal);
-        //getMeal("201904061");
-
+        updateMealInfoForWeek(i, i1, i2);
     }
 
     //add meal to firebase.
@@ -58,29 +63,70 @@ public class MainActivity extends AppCompatActivity implements DatePickerDialog.
         myRef.setValue(meal);
     }
 
-    protected void getMeal(String date) {
+    public void updateMealInfoForWeek(int year, int month, int day) {
+        Calendar cal = Calendar.getInstance();
+        cal.set(year, month, day);
+        while (cal.get(Calendar.DAY_OF_WEEK) > 1) {
+            cal.add(Calendar.DATE, -1);
+        }
+
+        cal.add(Calendar.DATE, 1);
+        setMeal(getDate(cal) + "0", (TextView) findViewById(R.id.MLTextView));
+        setMeal(getDate(cal) + "1", (TextView) findViewById(R.id.MDTextView));
+        cal.add(Calendar.DATE, 1);
+        setMeal(getDate(cal) + "0", (TextView) findViewById(R.id.TLTextView));
+        setMeal(getDate(cal) + "1", (TextView) findViewById(R.id.TDTextView));
+        cal.add(Calendar.DATE, 1);
+        setMeal(getDate(cal) + "0", (TextView) findViewById(R.id.WLTextView));
+        setMeal(getDate(cal) + "1", (TextView) findViewById(R.id.WDTextView));
+        cal.add(Calendar.DATE, 1);
+        setMeal(getDate(cal) + "0", (TextView) findViewById(R.id.TRLTextView));
+        setMeal(getDate(cal) + "1", (TextView) findViewById(R.id.TRDTextView));
+        cal.add(Calendar.DATE, 1);
+        setMeal(getDate(cal) + "0", (TextView) findViewById(R.id.FLTextView));
+    }
+
+    public String getDate(Calendar cal) {
+        String newYear = "" + cal.get(Calendar.YEAR);
+
+        String newMonth = "" + cal.get(Calendar.MONTH);
+        if (newMonth.length() == 1) {
+            newMonth = "0" + newMonth;
+        }
+
+        String newDay = "" + cal.get(Calendar.DAY_OF_MONTH);
+        if (newDay.length() == 1) {
+            newDay = "0" + newDay;
+        }
+        return newYear + newMonth + newDay;
+    }
+
+    //Lunch: April 6, 2019: 201904060 -> "-"
+    protected void setMeal(String date, TextView view) {
+        Log.v("Getting a meal", date);
+        final TextView tv = view;
         myRef = database.getReference(date);
         ValueEventListener postListener = new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 // Get Post object and use the values to update the UI
                 Meal meal = dataSnapshot.getValue(Meal.class);
-                Toast.makeText(getApplicationContext(),meal.toString(),Toast.LENGTH_SHORT).show();
-
-                // ...
+                if (meal != null) {
+                    tv.setText("" + meal.getNumPeopleEating());
+                } else {
+                    tv.setText("-");
+                }
             }
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
-                // Getting Post failed, log a message
-                //Log.d("loadPost:onCancelled");
-                // ...
+                tv.setText("-");
             }
         };
         final ValueEventListener valueEventListener = myRef.addValueEventListener(postListener);
     }
 
-/*
+
     public void setupMeals() {
 
     }
@@ -89,5 +135,5 @@ public class MainActivity extends AppCompatActivity implements DatePickerDialog.
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main_menu, menu);
         return super.onCreateOptionsMenu(menu);
-    }*/
+    }
 }
