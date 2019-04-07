@@ -6,6 +6,13 @@ public class Meal {
     private MealEnum mealEnum;
     private Cuisine cuisine;
 
+    Meal() {
+        date = "";
+        numPeopleEating = -1;
+        mealEnum = MealEnum.MONDAY_LUNCH;
+        cuisine = Cuisine.AMERICAN;
+    }
+
     Meal(String date, int numPeopleEating, MealEnum mealEnum, Cuisine cuisine) {
         this.date = date;
         this.numPeopleEating = numPeopleEating;
