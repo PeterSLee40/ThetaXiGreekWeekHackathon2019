@@ -2,9 +2,14 @@ package com.example.peterlee.thetaxigreekweek2019;
 
 import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
+import android.nfc.Tag;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -32,30 +37,27 @@ public class MainActivity extends AppCompatActivity implements DatePickerDialog.
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         database = FirebaseDatabase.getInstance();
-        createFakeData();
+        try {
+            createFakeData();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
-    public void createFakeData() {
-        Meal meal1 = new Meal("20190401", 40, MealEnum.MONDAY_LUNCH, Cuisine.AMERICAN);
-        Meal meal2 = new Meal("20190401", 60, MealEnum.MONDAY_DINNER, Cuisine.AMERICAN);
-        Meal meal3 = new Meal("20190402", 45, MealEnum.TUESDAY_LUNCH, Cuisine.LATIN);
-        Meal meal4 = new Meal("20190402", 55, MealEnum.TUESDAY_DINNER, Cuisine.ASIAN);
-        Meal meal5 = new Meal("20190403", 50, MealEnum.WEDNESDAY_LUNCH, Cuisine.LATIN);
-        Meal meal6 = new Meal("20190403", 70, MealEnum.WEDNESDAY_DINNER, Cuisine.AMERICAN);
-        Meal meal7 = new Meal("20190404", 40, MealEnum.THURSDAY_LUNCH, Cuisine.AMERICAN);
-        Meal meal8 = new Meal("20190404", 20, MealEnum.THURSDAY_DINNER, Cuisine.LATIN);
-        Meal meal9 = new Meal("20190405", 40, MealEnum.FRIDAY_LUNCH, Cuisine.AMERICAN);
-        addMeal(meal1);
-        addMeal(meal2);
-        addMeal(meal3);
-        addMeal(meal4);
-        addMeal(meal5);
-        addMeal(meal6);
-        addMeal(meal7);
-        addMeal(meal8);
-        addMeal(meal9);
-
-        database = FirebaseDatabase.getInstance();
-
+    public void createFakeData() throws IOException {
+        Toast.makeText(getApplicationContext(),"yay",Toast.LENGTH_SHORT).show();
+        Meal[] meals = new Meal[9];
+        meals[0] = new Meal("20190401", 40, MealEnum.MONDAY_LUNCH, Cuisine.AMERICAN);
+        meals[1] = new Meal("20190401", 60, MealEnum.MONDAY_DINNER, Cuisine.AMERICAN);
+        meals[2] = new Meal("20190402", 45, MealEnum.TUESDAY_LUNCH, Cuisine.LATIN);
+        meals[3] = new Meal("20190402", 55, MealEnum.TUESDAY_DINNER, Cuisine.ASIAN);
+        meals[4] = new Meal("20190403", 50, MealEnum.WEDNESDAY_LUNCH, Cuisine.LATIN);
+        meals[5] = new Meal("20190403", 70, MealEnum.WEDNESDAY_DINNER, Cuisine.AMERICAN);
+        meals[6] = new Meal("20190404", 40, MealEnum.THURSDAY_LUNCH, Cuisine.AMERICAN);
+        meals[7] = new Meal("20190404", 20, MealEnum.THURSDAY_DINNER, Cuisine.LATIN);
+        meals[8] = new Meal("20190405", 40, MealEnum.FRIDAY_LUNCH, Cuisine.AMERICAN);
+        for (Meal meal: meals) {
+            Log.v("csv:", meal.tocsv());
+        }
         Calendar calendar = Calendar.getInstance();
         int year = calendar.get(Calendar.YEAR);
         int month = calendar.get(Calendar.MONTH);
@@ -67,9 +69,9 @@ public class MainActivity extends AppCompatActivity implements DatePickerDialog.
 
     public void setKeyString() {
         TextView keyTextView = findViewById(R.id.keyTextView);
-        keyTextView.setText(Html.fromHtml("<font color=\"#F44336\">American</font> | " +
-                "<font color='#673AB7'>Asian</font> | <font color='#4CAF50'>European</font> | " +
-                "<font color='#03A9F4'>Latin</font> | <font color='#FF9800'>Middle Eastern</font>"));
+        keyTextView.setText(Html.fromHtml("<font color='#F44336'>American</font> | " +
+                "<font color='#673AB7'>Asian</font> " +
+                "<font color='#03A9F4'>Latin</font> ))"));
     }
 
     public void pickDate(MenuItem item) {
