@@ -5,7 +5,7 @@
         android:title="Edit Cuisine"
         app:showAsAction="always"
         android:icon="@drawable/ic_edit"
-        android:onClick="pickDate"
+        android:onClick="pickCuisines"
         android:orderInCategory="100"/>
     <item android:id="@+id/pick_dates"
         android:title="Pick Week"

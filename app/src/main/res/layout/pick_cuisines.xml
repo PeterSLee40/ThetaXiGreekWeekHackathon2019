@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/IntroTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:text="Select each meal's cuisines."
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="6dp"
+            android:textSize="24dp"/>
+
+
+        <TextView
+            android:id="@+id/MLTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Monday Lunch"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/IntroTextView"
+            android:layout_marginTop="24dp"/>
+        <Spinner
+            android:id="@+id/MLSpinner"
+            android:layout_width="match_parent"
+            android:layout_height="32dp"
+            android:layout_below="@id/MLTextView"
+            android:textAlignment="center"
+            android:paddingLeft="48dp"
+            android:layout_marginTop="6dp"/>
+
+        <TextView
+            android:id="@+id/MDTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Monday Dinner"
+            android:layout_below="@+id/MLSpinner"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="6dp"/>
+        <Spinner
+            android:id="@+id/MDSpinner"
+            android:layout_width="match_parent"
+            android:layout_height="32dp"
+            android:layout_below="@id/MDTextView"
+            android:textAlignment="center"
+            android:paddingLeft="48dp"
+            android:layout_marginTop="6dp"/>
+
+        <TextView
+            android:id="@+id/TLTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tuesday Lunch"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="6dp"
+            android:layout_below="@id/MDSpinner"/>
+        <Spinner
+            android:id="@+id/TLSpinner"
+            android:layout_width="match_parent"
+            android:layout_height="32dp"
+            android:layout_below="@id/TLTextView"
+            android:textAlignment="center"
+            android:paddingLeft="48dp"
+            android:layout_marginTop="6dp"/>
+
+        <TextView
+            android:id="@+id/TDTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tuesday Dinner"
+            android:layout_below="@+id/TLSpinner"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="6dp"/>
+        <Spinner
+            android:id="@+id/TDSpinner"
+            android:layout_width="match_parent"
+            android:layout_height="32dp"
+            android:layout_below="@id/TDTextView"
+            android:textAlignment="center"
+            android:paddingLeft="48dp"
+            android:layout_marginTop="6dp"/>
+
+        <TextView
+            android:id="@+id/WLTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Wednesday Lunch"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="6dp"
+            android:layout_below="@id/TDSpinner"/>
+        <Spinner
+            android:id="@+id/WLSpinner"
+            android:layout_width="match_parent"
+            android:layout_height="32dp"
+            android:layout_below="@id/WLTextView"
+            android:textAlignment="center"
+            android:paddingLeft="48dp"
+            android:layout_marginTop="6dp"/>
+
+        <TextView
+            android:id="@+id/WDTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Wednesday Dinner"
+            android:layout_below="@+id/WLSpinner"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="6dp"/>
+        <Spinner
+            android:id="@+id/WDSpinner"
+            android:layout_width="match_parent"
+            android:layout_height="32dp"
+            android:layout_below="@id/WDTextView"
+            android:textAlignment="center"
+            android:paddingLeft="48dp"
+            android:layout_marginTop="6dp"/>
+
+        <TextView
+            android:id="@+id/TRLTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Thursday Lunch"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="6dp"
+            android:layout_below="@id/WDSpinner"/>
+        <Spinner
+            android:id="@+id/TRLSpinner"
+            android:layout_width="match_parent"
+            android:layout_height="32dp"
+            android:layout_below="@id/TRLTextView"
+            android:textAlignment="center"
+            android:paddingLeft="48dp"
+            android:layout_marginTop="6dp"/>
+
+        <TextView
+            android:id="@+id/TRDTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Thursday Dinner"
+            android:layout_below="@+id/TRLSpinner"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="6dp"/>
+        <Spinner
+            android:id="@+id/TRDSpinner"
+            android:layout_width="match_parent"
+            android:layout_height="32dp"
+            android:layout_below="@id/TRDTextView"
+            android:textAlignment="center"
+            android:paddingLeft="48dp"
+            android:layout_marginTop="6dp"/>
+
+        <TextView
+            android:id="@+id/FLTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Friday Lunch"
+            android:layout_below="@+id/TRDSpinner"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="6dp"/>
+        <Spinner
+            android:id="@+id/FLSpinner"
+            android:layout_width="match_parent"
+            android:layout_height="32dp"
+            android:layout_below="@id/FLTextView"
+            android:textAlignment="center"
+            android:paddingLeft="48dp"
+            android:layout_marginTop="6dp"/>
+
+        <Button
+            android:id="@+id/ConfirmationButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/FLSpinner"
+            android:layout_marginTop="24dp"
+            android:text="Submit"/>
+    </RelativeLayout>
+</ScrollView>

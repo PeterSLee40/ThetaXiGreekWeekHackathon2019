@@ -40,5 +40,27 @@ public enum MealEnum {
     public int getDayOfWeek() {
         return mealDayOfWeek;
     }
+
+    public static MealEnum fromInt(int value) {
+        if (value == 0) {
+            return MONDAY_LUNCH;
+        } else if (value == 1) {
+            return MONDAY_DINNER;
+        } else if (value == 2) {
+            return TUESDAY_LUNCH;
+        } else if (value == 3) {
+            return TUESDAY_DINNER;
+        } else if (value == 4) {
+            return WEDNESDAY_LUNCH;
+        } else if (value == 5) {
+            return WEDNESDAY_DINNER;
+        } else if (value == 6) {
+            return THURSDAY_LUNCH;
+        } else if (value == 7) {
+            return THURSDAY_DINNER;
+        } else {
+            return FRIDAY_LUNCH;
+        }
+    }
 }
 

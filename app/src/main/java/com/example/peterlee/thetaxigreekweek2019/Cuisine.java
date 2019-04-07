@@ -24,4 +24,15 @@ public enum Cuisine {
         return Color.parseColor(cuisineColor);
     }
 
+    public static Cuisine fromString(String value) {
+        if (value.equals("American")) {
+            return AMERICAN;
+        } else if (value.equals("Asian")) {
+            return ASIAN;
+        } else {
+            return LATIN;
+        }
+    }
+
+
 }

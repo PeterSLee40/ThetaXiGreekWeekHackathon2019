@@ -33,6 +33,14 @@ public class Meal {
         return cuisine;
     }
 
+    public void setCuisine(Cuisine newCuisine) {
+        cuisine = newCuisine;
+    }
+
+    public void setNumPeopleEating(int numPeopleEating) {
+        this.numPeopleEating = numPeopleEating;
+    }
+
     @Override
     public String toString() {
         return ("date: " + date +  "numPplEating" +
