@@ -3,6 +3,7 @@ package com.example.peterlee.thetaxigreekweek2019;
 import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
 import android.nfc.Tag;
+import android.support.annotation.NonNull;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -10,13 +11,16 @@ import android.os.Bundle;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 import android.text.Html;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
 import android.widget.DatePicker;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -42,6 +46,7 @@ public class MainActivity extends AppCompatActivity implements DatePickerDialog.
         } catch (IOException e) {
             e.printStackTrace();
         }
+        updateData();
     }
     public void createFakeData() throws IOException {
         Toast.makeText(getApplicationContext(),"yay",Toast.LENGTH_SHORT).show();
@@ -185,11 +190,55 @@ public class MainActivity extends AppCompatActivity implements DatePickerDialog.
         final ValueEventListener valueEventListener = myRef.addValueEventListener(postListener);
     }
 
+    public List arrayList, actualList = new ArrayList<Meal>();
 
-    public void setupMeals() {
+    public void updateData() {
+        DatabaseReference ref1 = FirebaseDatabase.getInstance().getReference();
+        ref1.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                float lunchtotal = 0;
+                float lunchnum = 0;
+                float lunchrat = 0;
+                float dinnertotal = 0;
+                float dinnernum = 0;
+                float dinnerrat = 0;
+                for (DataSnapshot uniqueKeySnapshot : dataSnapshot.getChildren()) {
+                    boolean add = false;
+                    int numppl = 0;
+                    for (DataSnapshot booksSnapshot : uniqueKeySnapshot.getChildren()) {
+                        //loop 2 to go through all the child nodes of books node
+                        if (booksSnapshot.getKey().equals("numPeopleEating")) {
+                            numppl = ((Long) uniqueKeySnapshot.child("numPeopleEating").getValue()).intValue();
+                        }
+                    }
+                    if (numppl > 0) {
+                        String date = String.valueOf(uniqueKeySnapshot.child("date").getValue());
+                        MealEnum mealEnum = MealEnum.getEnum(String.valueOf(uniqueKeySnapshot.child("mealEnum").getValue()));
+                        Cuisine cuisine = Cuisine.getEnum(String.valueOf(uniqueKeySnapshot.child("cuisine").getValue()));
+                        Log.v("united: ", String.valueOf(uniqueKeySnapshot.child("cuisine")));
+                        if (mealEnum.isLunch()) {
+                            lunchtotal += numppl;
+                            lunchnum++;
+                        } else {
+                            dinnertotal += numppl;
+                            dinnernum++;
+                        }
+                        Meal newMeal = new Meal(date, numppl, mealEnum, cuisine);
+                        arrayList.add(newMeal);
+                        actualList = arrayList;
+                        Log.d("size of list:", String.valueOf(arrayList.size()));
+                        Log.v("new meal:", newMeal.toString());
+                    }
+                }
+            }
 
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
     }
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main_menu, menu);
