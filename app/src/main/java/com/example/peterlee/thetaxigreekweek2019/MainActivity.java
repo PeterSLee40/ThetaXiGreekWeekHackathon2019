@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         database = FirebaseDatabase.getInstance();
-        Meal meal = new Meal("20190406", 629, MealEnum.FRIDAY_LUNCH);
+        Meal meal = new Meal("20190406", 629, MealEnum.FRIDAY_LUNCH, Cuisine.AMERICAN);
         addMeal(meal);
         //getMeal("201904061");
 }

@@ -33,6 +33,10 @@ public enum MealEnum {
         return !mealIsLunch;
     }
 
+    public boolean isMWF() {
+        return mealDayOfWeek % 2 == 0;
+    }
+
     public int getDayOfWeek() {
         return mealDayOfWeek;
     }
