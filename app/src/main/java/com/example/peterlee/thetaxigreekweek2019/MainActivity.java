@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity implements DatePickerDialog.
         setContentView(R.layout.activity_main);
         database = FirebaseDatabase.getInstance();
 
-        //createTestData();
+        createTestData();
 
         Calendar calendar = Calendar.getInstance();
         int year = calendar.get(Calendar.YEAR);
@@ -140,12 +140,12 @@ public class MainActivity extends AppCompatActivity implements DatePickerDialog.
                             addMeal(curMeals[i]);
                         }
                     } else {
-                        //Submit null one
                         int extraDays = (i / 2) + 1;
                         Calendar cal = Calendar.getInstance();
                         cal.set(curYear, curMonth, curDay);
                         cal.add(Calendar.DATE, extraDays);
-                        Meal curMeal = new Meal(getDate(cal), -1, MealEnum.fromInt(i),
+
+                        Meal curMeal = new Meal(getDate(cal), (int) (Math.random() * 20) + 40, MealEnum.fromInt(i),
                                 Cuisine.fromString(
                                         cuisines[spinners[i].getSelectedItemPosition()]));
                         addMeal(curMeal);
@@ -195,9 +195,7 @@ public class MainActivity extends AppCompatActivity implements DatePickerDialog.
         Calendar cal = Calendar.getInstance();
         cal.set(year, month, day);
         while (cal.get(Calendar.DAY_OF_WEEK) != 1) {
-            Log.v("REMOVE", getDate(cal) + ";" + cal.get(Calendar.DAY_OF_WEEK));
             cal.add(Calendar.DATE, -1);
-            Log.v("REMOVED", getDate(cal));
         }
 
         curYear = cal.get(Calendar.YEAR);
@@ -262,8 +260,6 @@ public class MainActivity extends AppCompatActivity implements DatePickerDialog.
                     if (meal.getNumPeopleEating() != -1) {
                         tv.setText("" + meal.getNumPeopleEating());
                     } else {
-                        //int prediction = predict(date);
-                        //tv.setText("" + prediction);
                         tv.setText("?");
                     }
                     String date = fDate.substring(0, fDate.length() - 1);
