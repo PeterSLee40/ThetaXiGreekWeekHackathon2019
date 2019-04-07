@@ -24,7 +24,6 @@ public class MainActivity extends AppCompatActivity implements DatePickerDialog.
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-<<<<<<< HEAD
         //FirebaseDatabase database = FirebaseDatabase.getInstance();
         //DatabaseReference myRef = database.getReference("message");
 
@@ -44,13 +43,10 @@ public class MainActivity extends AppCompatActivity implements DatePickerDialog.
 
     @Override
     public void onDateSet(DatePicker datePicker, int i, int i1, int i2) {
-=======
         database = FirebaseDatabase.getInstance();
         Meal meal = new Meal("20190406", 629, MealEnum.FRIDAY_LUNCH, Cuisine.AMERICAN);
         addMeal(meal);
         //getMeal("201904061");
-}
->>>>>>> master
 
     }
 
