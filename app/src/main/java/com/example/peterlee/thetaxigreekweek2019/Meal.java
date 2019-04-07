@@ -62,18 +62,29 @@ public class Meal {
         }
         String cuisineJson = "\"Cuisine\" :";
         if (cuisine.equals("American")) {
-            cuisineJson += "\"{0,0,0,0,1}\"";
+            cuisineJson += "\"{0,0,1}\"";
         } else if (cuisine.equals("Asian")) {
-            cuisineJson += "\"{0,0,0,1,0}\"";
+            cuisineJson += "\"{0,1,0}\"";
         } else if (cuisine.equals("European")) {
-            cuisineJson += "\"{0,0,1,0,0}\"";
-        } else if (cuisine.equals("Latin")) {
-            cuisineJson += "\"{0,1,0,0,0}\"";
-        } else if (cuisine.equals("Middle Eastern")) {
-            cuisineJson += "\"{1,0,0,0,0}\"";
+            cuisineJson += "\"{1,0,0}\"";
         }
         String numberOfPplEating = "\"numberOfPplEating\" :";
         numberOfPplEating += numPeopleEating;
         return "{" + meal + time + cuisine + numberOfPplEating +"}";
+    }
+    public String tocsv(){
+        String meal = mealEnum.isLunch() ? "1," :"0,";
+        String time = mealEnum.isMWF() ? "1," :"0,";
+        String cuisineJson = "";
+        if (cuisine == Cuisine.AMERICAN) {
+            cuisineJson = "0,0,1,";
+        } else if (cuisine == Cuisine.ASIAN) {
+            cuisineJson = "0,1,0,";
+        } else if (cuisine == Cuisine.LATIN) {
+            cuisineJson = "1,0,0,";
+        }
+        String numberOfPplEating = "";
+        numberOfPplEating += numPeopleEating;
+        return meal + time + cuisineJson + numberOfPplEating;
     }
 }
